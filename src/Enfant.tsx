@@ -8,11 +8,8 @@ type EnfantProps = {
 
 
 
-
-
 export default function Enfant(props: EnfantProps) {
     const {date,title,content} = props
-
     const [state, setState] = useState<string>("Je suis le state")
     const [counter,setCounter] =useState<number>(0)
    
@@ -40,15 +37,15 @@ const handleLessOne= () => {
     
   return (
     <div style={{display:"flex", justifyContent:"center", alignItems:"center", height:"100vh"}}>
-        <div style={{width:"300px"}}>
+        <div style={{width:"500px"}}>
             <h1 style={{borderBottom:"1px solid silver"}}>{title}</h1>
+             <p>{date}</p> 
             <h5>{state}</h5>
             <p>{content}</p> 
-            <button onClick = {handleLessOne}>Retirer 1 à counter</button> 
-            <button onClick = {handleOneMore}>Ajoute 1 à counter</button> 
-            <button onClick = {()=>setCounter(0)}>Reset counter</button> 
+            <button onClick = {handleLessOne} style={{cursor:'pointer', padding:'1rem 2rem'}}>-</button> 
+            <button onClick = {handleOneMore} style={{margin:'0 1rem', cursor:'pointer', padding:'1rem 2rem'}}>+</button> 
+            <button onClick = {()=>setCounter(0)} style={{cursor:'pointer', padding:'1rem 2rem'}}>Reset counter</button> 
             <p >counter: <span style={{fontSize:"2rem", fontStyle:"bold", color:`${randomColor(counterColor)}`}}>{counter}</span></p>
-            <p>{date}</p> 
         </div>
     </div>
   )
