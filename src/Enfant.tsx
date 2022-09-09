@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import {UserContext} from './context/CurrentUser'
 
 type EnfantProps = {
     title:string;
@@ -9,6 +10,7 @@ type EnfantProps = {
 
 
 export default function Enfant(props: EnfantProps) {
+    const {msgContext, setMsgList} = useContext(UserContext)
     const {date,title,content} = props
     const [state, setState] = useState<string>("Je suis le state")
     const [counter,setCounter] =useState<number>(0)
@@ -38,6 +40,7 @@ const handleLessOne= () => {
   return (
     <div style={{display:"flex", justifyContent:"center", alignItems:"center", height:"100vh"}}>
         <div style={{width:"500px"}}>
+        <h1>{msgContext}</h1>
             <h1 style={{borderBottom:"1px solid silver"}}>{title}</h1>
              <p>{date}</p> 
             <h5>{state}</h5>

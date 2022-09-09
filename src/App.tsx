@@ -17,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Enfant title="Je suis le titre" content={article} date={date}/>
+     
       
     </div>
   );
